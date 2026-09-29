@@ -1,5 +1,8 @@
 import {Locator, Page} from "@playwright/test";
 
+export type LocatorTree = {
+  [key: string]: Locator | LocatorTree;
+};
 
 export abstract class BaseComponent {
     protected page: Page;
@@ -8,5 +11,5 @@ export abstract class BaseComponent {
         this.page = page;
     }   
 
-    abstract locators: Record<string, Locator>;
+    abstract locators: LocatorTree;
 }

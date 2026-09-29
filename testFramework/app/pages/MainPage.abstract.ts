@@ -4,6 +4,8 @@
  * Subclasses of MainPage must implement the open and loaded methods to define specific behavior for each page.
  */
 
+import { test } from '@playwright/test';
+import { step } from '../../utils/stepDecorator';
 import { BaseClass } from '../BaseClass';
 import { LoginForm } from '../components/forms/loginForm';
 import { HeaderMainNavigationBar } from '../components/navigationBars/HeaderMainNavigationBar';
@@ -13,10 +15,32 @@ export abstract class MainPage extends BaseClass {
   abstract loaded(...args: unknown[]): Promise<void>;
   protected baseHeader = new HeaderMainNavigationBar(this.page);
 
+  @step('Logout from the application')
   async logout(): Promise<LoginForm['locators']> {
-    await this.baseHeader.locators.userIcon.click();
-    await this.baseHeader.locators.logOutOption.click();
+    await this.baseHeader.locators.userIcon.icon.click();
+    await this.baseHeader.locators.userIcon.logOutOption.click();
 
     return new LoginForm(this.page).locators;
   }
+
+  async switchLanguage(desiredLanguage: 'English' | 'Norwegian'): Promise<void> {
+    test.step(`Switch language to ${desiredLanguage}`, async () => {
+      await this.baseHeader.locators.languageSwitcher.icon.click();
+
+      switch (desiredLanguage) {
+        case 'English':
+          await this.baseHeader.locators.languageSwitcher.engOption.click();
+          break;
+        case 'Norwegian':
+          await this.baseHeader.locators.languageSwitcher.norOption.click();
+          break;
+      }
+      await this.baseHeader.locators.languageSwitcher.norOption.waitFor({ state: 'hidden' });
+      await this.page.waitForLoadState('load');
+    });
+
+    
+  }
+
+
 }

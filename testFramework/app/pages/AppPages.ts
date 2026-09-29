@@ -5,18 +5,21 @@
  */
 
 import { Page } from "@playwright/test";
-import { HomePage } from "./HomePage";
 import { LoginPage } from "./LoginPage";
+import { ClientsPage } from "./ClientsPage";
+import { DashboardPage } from "./DashboardPage";
 
 export class AppPages {
-  protected page: Page;
-  readonly homePage: HomePage;
+  readonly page: Page;
+  readonly dashboardPage: DashboardPage;
   readonly loginPage: LoginPage;
-  
+  readonly clientsPage: ClientsPage;
+
   constructor(page: Page) {
     this.page = page;
-    this.homePage = new HomePage(page);
+    this.dashboardPage = new DashboardPage(page);
     this.loginPage = new LoginPage(page);
+    this.clientsPage = new ClientsPage(page);
 
   }
 }

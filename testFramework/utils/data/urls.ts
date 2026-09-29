@@ -6,4 +6,5 @@
 export const urls = {
   login: "/login",
   home: "/",
+  clients: "/clients"
 };
