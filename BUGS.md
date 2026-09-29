@@ -12,4 +12,4 @@ intermittent?)
 1 - search doesn't work
 2 - page not refreshes when navigating between them 
 3 - time gap between local and time in changes
-4 - 
+4 - no confirmation when creating a user
