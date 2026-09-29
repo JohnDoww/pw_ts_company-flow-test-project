@@ -52,6 +52,7 @@ export class ClientsPage extends MainPage {
 
   @step('Search for client in the table')
   async findClientInTheTable(clientName: string): Promise<Locator> {
+    await this.page.reload()
     await this.page.waitForLoadState('load');
     await this.table.tableRows.first().waitFor();
     while ((await this.page.getByText(clientName).isVisible()) === false) {
