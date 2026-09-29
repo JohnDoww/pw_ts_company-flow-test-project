@@ -2,11 +2,10 @@
  *
  */
 
-import { BaseComponent } from '../baseComponent.abstract';
+import { BaseComponent } from '../BaseComponent.abstract';
 
 export class HeaderMainNavigationBar extends BaseComponent {
   readonly locators = {
-    
     userIcon: {
       icon: this.page.getByText('account_circle'),
       logOutOption: this.page.locator('[role="menuitem"] [data-mat-icon-type="font"]'),
@@ -15,7 +14,6 @@ export class HeaderMainNavigationBar extends BaseComponent {
       icon: this.page.getByText('language'),
       engOption: this.page.locator('[role="menuitem"]').getByText('English'),
       norOption: this.page.locator('[role="menuitem"]').getByText('Norsk'),
-    }
-    
+    },
   };
 }

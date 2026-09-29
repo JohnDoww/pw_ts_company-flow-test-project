@@ -5,9 +5,9 @@
  * This class  is the entry point for all the services and pages in the application, providing a single access point for all functionality.
  */
 
-import { Page } from "@playwright/test";
-import { AppServices } from "./services/AppServices";
-import { AppPages } from "./pages/AppPages";
+import { Page } from '@playwright/test';
+import { AppServices } from './services/AppServices';
+import { AppPages } from './pages/AppPages';
 
 export class App {
   readonly page: Page;

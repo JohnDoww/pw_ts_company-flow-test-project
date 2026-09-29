@@ -4,7 +4,10 @@
  */
 
 export const urls = {
-  login: "/login",
-  home: "/",
-  clients: "/clients"
+  login: '/login',
+  home: '/',
+  clients: '/clients',
+  thirdParty: {
+    fetchOrgData: 'https://data.brreg.no/enhetsregisteret/api/enheter',
+  },
 };

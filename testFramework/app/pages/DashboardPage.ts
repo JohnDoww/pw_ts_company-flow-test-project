@@ -8,7 +8,7 @@ import { MainPage } from './MainPage.abstract';
 
 export class DashboardPage extends MainPage {
   private cards: DashboardCards['locators'] = new DashboardCards(this.page).locators;
-    async open(): Promise<void> {
+  async open(): Promise<void> {
     await this.page.goto('/');
   }
 

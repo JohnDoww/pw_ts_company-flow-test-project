@@ -2,7 +2,7 @@
  * New client form (/clients/new)
  */
 
-import { BaseComponent } from '../baseComponent.abstract';
+import { BaseComponent } from '../BaseComponent.abstract';
 
 export class NewClientForm extends BaseComponent {
   private form = this.page.locator('app-client-form form');
@@ -11,7 +11,7 @@ export class NewClientForm extends BaseComponent {
     form: this.form,
     title: this.page.locator('app-client-form mat-card-title'),
     organizationNumberInput: this.form.locator('input[formcontrolname="organizationNumber"]'),
-    fetchFromBrregButton: this.form.locator('.org-row button[mat-stroked-button]'),
+    fetchOrgDataButton: this.form.locator('.org-row button[mat-stroked-button]'),
     nameInput: this.form.locator('input[formcontrolname="name"]'),
     categorySelect: this.form.locator('mat-select[formcontrolname="customerCategory"]'),
     statusSelect: this.form.locator('mat-select[formcontrolname="status"]'),

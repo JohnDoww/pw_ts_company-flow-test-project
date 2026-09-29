@@ -4,9 +4,9 @@
  * It provides common properties and methods that can be inherited by subclasses.
  */
 
-import { Page } from "@playwright/test";
-import { FunctionHelpers } from "../utils/helpers/HelperFunctions";
-import { urls } from "../utils/data/urls";
+import { Page } from '@playwright/test';
+import { FunctionHelpers } from '../utils/helpers/HelperFunctions';
+import { urls } from '../utils/data/urls';
 
 export class BaseClass {
   protected page: Page;
@@ -16,6 +16,5 @@ export class BaseClass {
   constructor(page: Page) {
     this.page = page;
     this.helper = new FunctionHelpers(page);
-
   }
 }

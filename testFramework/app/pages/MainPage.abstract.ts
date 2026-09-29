@@ -9,11 +9,13 @@ import { step } from '../../utils/stepDecorator';
 import { BaseClass } from '../BaseClass';
 import { LoginForm } from '../components/forms/loginForm';
 import { HeaderMainNavigationBar } from '../components/navigationBars/HeaderMainNavigationBar';
+import { Notifications } from '../components/Notifications';
 
 export abstract class MainPage extends BaseClass {
   abstract open(...args: unknown[]): Promise<void>;
   abstract loaded(...args: unknown[]): Promise<void>;
   protected baseHeader = new HeaderMainNavigationBar(this.page);
+  protected notifications = new Notifications(this.page);
 
   @step('Logout from the application')
   async logout(): Promise<LoginForm['locators']> {
@@ -38,9 +40,5 @@ export abstract class MainPage extends BaseClass {
       await this.baseHeader.locators.languageSwitcher.norOption.waitFor({ state: 'hidden' });
       await this.page.waitForLoadState('load');
     });
-
-    
   }
-
-
 }

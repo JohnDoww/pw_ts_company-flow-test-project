@@ -4,10 +4,10 @@
  * The AppPages class can be extended to include additional pages as needed.
  */
 
-import { Page } from "@playwright/test";
-import { LoginPage } from "./LoginPage";
-import { ClientsPage } from "./ClientsPage";
-import { DashboardPage } from "./DashboardPage";
+import { Page } from '@playwright/test';
+import { LoginPage } from './LoginPage';
+import { ClientsPage } from './ClientsPage';
+import { DashboardPage } from './DashboardPage';
 
 export class AppPages {
   readonly page: Page;
@@ -20,6 +20,5 @@ export class AppPages {
     this.dashboardPage = new DashboardPage(page);
     this.loginPage = new LoginPage(page);
     this.clientsPage = new ClientsPage(page);
-
   }
 }

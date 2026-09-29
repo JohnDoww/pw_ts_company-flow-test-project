@@ -15,7 +15,9 @@ test.describe('Login', () => {
       await appPages.loginPage.open();
       const dashboardCards = await appPages.loginPage.passLoginForm(user.email, user.password);
       await appPages.dashboardPage.switchLanguage('English');
-      await expect.soft(dashboardCards.header, `Dashboard header is visible`).toHaveText('Dashboard');
+      await expect
+        .soft(dashboardCards.header, `Dashboard header is visible`)
+        .toHaveText('Dashboard');
 
       const loginFormLocators = await appPages.dashboardPage.logout();
       await expect.soft(loginFormLocators.usernameInput, `Login form is visible`).toBeVisible();

@@ -1,15 +1,15 @@
-import {Locator, Page} from "@playwright/test";
+import { Locator, Page } from '@playwright/test';
 
 export type LocatorTree = {
   [key: string]: Locator | LocatorTree;
 };
 
 export abstract class BaseComponent {
-    protected page: Page;
+  protected page: Page;
 
-    constructor(page: Page) {
-        this.page = page;
-    }   
+  constructor(page: Page) {
+    this.page = page;
+  }
 
-    abstract locators: LocatorTree;
+  abstract locators: LocatorTree;
 }

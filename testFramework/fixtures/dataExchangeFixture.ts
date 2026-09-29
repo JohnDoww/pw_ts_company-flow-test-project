@@ -4,18 +4,18 @@
  * The test fixtures can be used in the BDD step definitions to access the API services and context.
  */
 
-import { APIResponse } from "@playwright/test";
-import { test as base, createBdd } from "playwright-bdd";
-import { App } from "../app/App";
+import { APIResponse } from '@playwright/test';
+import { test as base, createBdd } from 'playwright-bdd';
+import { App } from '../app/App';
 
 type Fixtures = {
   ctx: { response: APIResponse | any };
-  apiServices: App["api"];
+  apiServices: App['api'];
 };
 
 export const test = base.extend<Fixtures>({
   ctx: async ({}, use) => {
-    const ctx = {} as Fixtures["ctx"];
+    const ctx = {} as Fixtures['ctx'];
     await use(ctx);
   },
 

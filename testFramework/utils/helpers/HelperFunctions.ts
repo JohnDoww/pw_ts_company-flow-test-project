@@ -4,7 +4,9 @@
  * The helper functions can be used in the BDD step definitions to perform common tasks and operations.
  */
 
+/// <reference types="node" />
 import { Page } from '@playwright/test';
+import path from 'path';
 
 export class FunctionHelpers {
   page: Page;
@@ -12,7 +14,10 @@ export class FunctionHelpers {
     this.page = page;
   }
 
-  async mockApiResponse(urlMock: string, filePath: string) {
+  private folderWithMockData = path.join(__dirname, '../data/mock-responses');
+  async mockApiResponse(urlMock: string, fileName: string) {
+    const filePath = path.join(this.folderWithMockData, fileName);
+
     this.page.route(urlMock, (route) =>
       route.fulfill({
         status: 200,
