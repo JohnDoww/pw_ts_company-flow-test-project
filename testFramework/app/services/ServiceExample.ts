@@ -1,5 +1,5 @@
 /**
- * This file defines the AnotherExampleService class, which represents another example service.
+ * This file defines the ServiceExample class, which represents example service.
  * It extends the BaseService class and provides specific implementations for making requests.
  */
 
@@ -9,7 +9,7 @@ export class ServiceExample extends BaseService {
   private readonly serviceUrl: string = this.urls.home + '/example';
 
   isObjectMatchNeededResponseType(obj: any): boolean {
-    throw new Error(`AnotherExampleService: Method not implemented yet.`);
+    throw new Error(`ServiceExample: Method not implemented yet.`);
 
     // Implement the logic to check if the object matches the expected response type
     return false;
@@ -21,7 +21,7 @@ export class ServiceExample extends BaseService {
     const response = await this.getRequestBase(url, headers);
 
     const body = await response.json();
-    throw new Error(`AnotherExampleService: GET Method not implemented yet.`);
+    throw new Error(`ServiceExample: GET Method not implemented yet.`);
   }
 
   async postRequest(options?: { params?: string; headers?: {}; body?: {} }): Promise<void> {
@@ -30,6 +30,6 @@ export class ServiceExample extends BaseService {
 
     const response = await this.postRequestBase(url, headers, body);
 
-    throw new Error(`AnotherExampleService: POST Method not implemented yet.`);
+    throw new Error(`ServiceExample: POST Method not implemented yet.`);
   }
 }

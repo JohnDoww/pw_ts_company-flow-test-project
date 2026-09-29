@@ -1,7 +1,6 @@
 /**
- * This file defines the HomePage class, which represents the home page of the application.
- * It extends the BasePage class and provides implementations for opening and loading the home page.
- * The HomePage class can be used to interact with the home page in tests.
+ * This file defines the DashboardPage class, which represents the Dashboard page of the application.
+ * The DashboardPage class can be used to interact with the Dashboard page in tests.
  */
 import { step } from '../../utils/stepDecorator';
 import { DashboardCards } from '../components/cards/DashboardCards';

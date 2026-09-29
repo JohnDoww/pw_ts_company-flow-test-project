@@ -1,7 +1,7 @@
 /**
  * This file defines helper functions for the application.
- * It imports the necessary modules and sets up the helper functions for the BDD tests.
- * The helper functions can be used in the BDD step definitions to perform common tasks and operations.
+ * It sets up the low level helper functions for the tests.
+ * The helper functions can be used in the test files or Page classes to perform common tasks and operations.
  */
 
 /// <reference types="node" />

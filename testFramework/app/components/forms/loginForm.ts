@@ -1,7 +1,3 @@
-/**
- *
- */
-
 import { BaseComponent } from '../BaseComponent.abstract';
 
 export class LoginForm extends BaseComponent {

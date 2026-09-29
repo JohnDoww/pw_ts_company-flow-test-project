@@ -1,7 +1,3 @@
-/**
- *
- */
-
 import { BaseComponent } from '../BaseComponent.abstract';
 
 export class DashboardCards extends BaseComponent {
