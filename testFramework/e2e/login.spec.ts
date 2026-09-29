@@ -1,7 +1,5 @@
-import { test, expect } from '@playwright/test';
-import { AppPages } from '../app/pages/AppPages';
-import { users } from '.././utils/data/users';
-import { urls } from '.././utils/data/urls';
+import { test, expect } from '../fixtures/baseFixture';
+import { users } from '../utils/data/users';
 
 const testData = [
   { user: users.accountant, role: 'Accountant' },
@@ -10,8 +8,7 @@ const testData = [
 
 test.describe('Login', () => {
   for (const { user, role } of testData) {
-    test(`${role} user can log out after logging in`, async ({ page }) => {
-      const appPages = new AppPages(page);
+    test(`${role} user can log out after logging in`, async ({ appPages, urls }) => {
       await appPages.loginPage.open();
       const dashboardCards = await appPages.loginPage.passLoginForm(user.email, user.password);
       await appPages.dashboardPage.switchLanguage('English');

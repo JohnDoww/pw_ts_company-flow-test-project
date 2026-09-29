@@ -7,8 +7,7 @@ import { defineConfig, devices } from '@playwright/test';
 // By default the tests run against the app served locally. To run against a
 // different URL instead (e.g. the hosted demo, if you can't start the dev
 // server), set PLAYWRIGHT_BASE_URL — Playwright then skips the local server.
-const externalBaseURL = 'https://company-flow.netlify.app';
-// const externalBaseURL = process.env.PLAYWRIGHT_BASE_URL;
+const externalBaseURL = process.env.PLAYWRIGHT_BASE_URL;
 const baseURL = externalBaseURL ?? 'http://localhost:4300';
 
 export default defineConfig({
@@ -19,7 +18,7 @@ export default defineConfig({
   reporter: [['html'], ['list']],
   use: {
     baseURL,
-    trace: 'retain-on-failure',
+    trace: 'on',
   },
   projects: [
     {

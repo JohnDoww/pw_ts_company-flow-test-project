@@ -10,12 +10,14 @@ import { BaseClass } from '../BaseClass';
 import { LoginForm } from '../components/forms/loginForm';
 import { HeaderMainNavigationBar } from '../components/navigationBars/HeaderMainNavigationBar';
 import { Notifications } from '../components/Notifications';
+import { Loader } from '../components/loader';
 
 export abstract class MainPage extends BaseClass {
-  abstract open(...args: unknown[]): Promise<void>;
+  abstract open(...args: unknown[]): Promise<unknown>;
   abstract loaded(...args: unknown[]): Promise<void>;
   protected baseHeader = new HeaderMainNavigationBar(this.page);
   protected notifications = new Notifications(this.page);
+  protected loader = new Loader(this.page);
 
   @step('Logout from the application')
   async logout(): Promise<LoginForm['locators']> {
@@ -25,8 +27,15 @@ export abstract class MainPage extends BaseClass {
     return new LoginForm(this.page).locators;
   }
 
+  async goToUrl(url: string): Promise<void> {
+    await test.step(`Navigate to URL: ${url}`, async () => {
+      await this.page.goto(url);
+      await this.page.waitForLoadState('load');
+    });
+  }
+
   async switchLanguage(desiredLanguage: 'English' | 'Norwegian'): Promise<void> {
-    test.step(`Switch language to ${desiredLanguage}`, async () => {
+    await test.step(`Switch language to ${desiredLanguage}`, async () => {
       await this.baseHeader.locators.languageSwitcher.icon.click();
 
       switch (desiredLanguage) {

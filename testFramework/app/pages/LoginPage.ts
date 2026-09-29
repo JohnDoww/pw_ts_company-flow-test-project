@@ -11,7 +11,7 @@ export class LoginPage extends MainPage {
 
   @step('Open the Login page')
   async open(): Promise<void> {
-    await this.page.goto(this.urls.login);
+    await this.goToUrl(this.urls.login);
     await this.loaded();
   }
 
@@ -28,6 +28,7 @@ export class LoginPage extends MainPage {
     await this.loginForm.passwordInput.fill(password);
     await this.loginForm.submitButton.click();
     await this.page.waitForLoadState('load');
+    await this.loader.locators.body.waitFor({ state: 'hidden' });
     const dashboardCards: DashboardCards['locators'] = new DashboardCards(this.page).locators;
     await dashboardCards.header.waitFor({ state: 'visible' });
 

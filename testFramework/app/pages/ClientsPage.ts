@@ -12,9 +12,10 @@ export class ClientsPage extends MainPage {
   private newClientForm: NewClientForm['locators'] = new NewClientForm(this.page).locators;
 
   @step('Open the Clients page')
-  async open(): Promise<void> {
-    await this.page.goto(this.urls.clients);
+  async open(): Promise<ClientsTable['locators'] > {
+    await this.goToUrl(this.urls.clients);
     await this.loaded();
+    return this.table;
   }
 
   @step('Clients page is loaded')

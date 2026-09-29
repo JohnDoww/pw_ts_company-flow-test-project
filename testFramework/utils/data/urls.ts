@@ -7,6 +7,8 @@ export const urls = {
   login: '/login',
   home: '/',
   clients: '/clients',
+  newClient: '/clients/new',
+  dashboard: '/dashboard',
   thirdParty: {
     fetchOrgData: 'https://data.brreg.no/enhetsregisteret/api/enheter',
   },
