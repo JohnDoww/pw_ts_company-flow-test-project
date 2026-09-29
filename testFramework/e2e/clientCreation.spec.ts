@@ -6,7 +6,7 @@ test.describe('Client creation', () => {
 
   test(`Create new client with mock data`, async ({ loggedInApp }) => {
     const clientName = faker.company.name() + '__' + faker.number.int({ max: 1000 });
-    const orgId = "971403403"; // in real project, org creation must be managed, so we always will have prepared org for the testing 
+    const orgId = '971403403'; // in real project, org creation must be managed, so we always will have prepared org for the testing
 
     await loggedInApp.clientsPage.open();
     await loggedInApp.clientsPage.createNewClient(orgId, clientName, true);

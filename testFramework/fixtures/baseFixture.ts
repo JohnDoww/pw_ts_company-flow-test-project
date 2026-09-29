@@ -4,7 +4,7 @@ import { users } from '../utils/data/users';
 import { urls } from '../utils/data/urls';
 
 type Fixtures = {
-  userRole: keyof typeof users;            
+  userRole: keyof typeof users;
   users: typeof users;
   urls: typeof urls;
   appPages: AppPages;
