@@ -1,7 +1,3 @@
-/**
- * New client form (/clients/new)
- */
-
 import { BaseComponent } from '../BaseComponent.abstract';
 
 export class NewClientForm extends BaseComponent {
