@@ -24,6 +24,7 @@ export class ClientsPage extends MainPage {
     await this.table.body.waitFor();
   }
 
+  // for real project the method must: accept as argument the clientData{}, after fetching the data verify that the fetched data === clientData{}
   async createNewClient(orgId: string, userName: string, mockOrgData?: boolean): Promise<void> {
     await test.step(`Create new client with orgId: ${orgId} and userName: ${userName},${mockOrgData ? ' mock data' : ''} `, async () => {
       await this.table.NewClientButton.click();

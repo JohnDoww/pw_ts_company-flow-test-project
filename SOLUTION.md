@@ -10,6 +10,7 @@ I added only once custom `data-testid`  to show case how will I handle it on the
 - No fixed sleeps; all waiting is via auto-waiting and web-first assertions.
 - Tests are independent and don't share state.
 - Every method has entry and exit points, so it's clear when app is ready to go forward
+- All tests were executed multiple times to prove the stability by `npx playwright test -- --repeat-each={numberOfRepetition}` 
 
 
 ## What was done
